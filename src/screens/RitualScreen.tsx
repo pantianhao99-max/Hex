@@ -22,31 +22,31 @@ type RitualPhase = {
 
 const PHASES: RitualPhase[] = [
   {
-    label: '\u9501\u5b9a',
-    status: '\u6b63\u5728\u5c01\u5370\u2026',
+    label: '\u5df2\u9501\u5b9a',
+    status: '\u5df2\u9501\u5b9a',
     threshold: 0,
-    note: '\u7ea2\u8272\u8fb9\u754c\u5df2\u9501\u5b9a\uff0c\u76ee\u6807\u4f53\u6b63\u88ab\u7eb3\u5165\u9759\u9ed8\u573a\u3002',
+    note: '\u5148\u522b\u7ba1\u522b\u7684\uff0c\u5b83\u73b0\u5728\u5728\u8fd9\u91cc\u3002',
   },
   {
-    label: '\u65bd\u538b',
-    status: '\u5e72\u6270\u6b63\u5728\u51cf\u5f31\u2026',
+    label: '\u6b63\u5728\u6536\u4f4f',
+    status: '\u6b63\u5728\u6536\u4f4f',
     threshold: 0.34,
-    note: '\u5c01\u5370\u7ebf\u5f00\u59cb\u6536\u7d27\uff0c\u5b83\u7684\u58f0\u91cf\u548c\u4f53\u79ef\u90fd\u5728\u88ab\u538b\u4f4e\u3002',
+    note: '\u518d\u6309\u4e00\u4f1a\u513f\uff0c\u5b83\u5feb\u6ca1\u90a3\u4e48\u54cd\u4e86\u3002',
   },
   {
-    label: '\u751f\u6548',
-    status: '\u5224\u51b3\u5373\u5c06\u751f\u6548\u2026',
+    label: '\u9a6c\u4e0a\u5b89\u9759',
+    status: '\u9a6c\u4e0a\u5b89\u9759',
     threshold: 0.76,
-    note: '\u518d\u575a\u6301\u4e00\u4e0b\uff0c\u5b83\u5c31\u4f1a\u5865\u7f29\u6210\u4e00\u4e2a\u53ef\u4ee5\u5ffd\u7565\u7684\u6b8b\u7559\u3002',
+    note: '\u522b\u677e\u5f00\uff0c\u5c31\u5feb\u7ed3\u675f\u4e86\u3002',
   },
 ];
 
 const getCurrentPhase = (progress: number, ritualCompleted: boolean) => {
   if (ritualCompleted) {
     return {
-      label: '\u751f\u6548',
-      status: '\u5224\u51b3\u5373\u5c06\u751f\u6548\u2026',
-      note: '\u5c01\u5370\u5df2\u6210\u3002\u522b\u9000\uff0c\u8ba9\u5224\u51b3\u843d\u4e0b\u6765\u3002',
+      label: '\u9a6c\u4e0a\u5b89\u9759',
+      status: '\u9a6c\u4e0a\u5b89\u9759',
+      note: '\u597d\u4e86\uff0c\u8ba9\u5b83\u5148\u5728\u8fd9\u513f\u505c\u4e00\u4e0b\u3002',
     };
   }
 
@@ -84,9 +84,9 @@ export default function RitualScreen({
 
   return (
     <ScreenShell
-      eyebrow={'\u9759\u9ed8\u5c01\u5370'}
+      eyebrow={'\u9000\u6563 Hex'}
       title={selectedTarget}
-      subtitle={'\u76ee\u6807\u5df2\u9501\u5b9a'}
+      subtitle={'\u5df2\u9501\u5b9a'}
       footer={
         <div className="space-y-3">
           <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] p-4">
@@ -115,7 +115,7 @@ export default function RitualScreen({
             onClick={onBack}
             className="w-full rounded-[24px] border border-white/10 bg-transparent px-6 py-4 text-sm tracking-[0.16em] text-white/50"
           >
-            {'\u91cd\u65b0\u9009\u62e9\u5bf9\u8c61'}
+            {'\u6362\u4e00\u4e2a'}
           </button>
         </div>
       }
@@ -165,9 +165,7 @@ export default function RitualScreen({
 
         <div className="grid gap-3 rounded-[28px] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm">
           <div className="flex items-center justify-between">
-            <div className="text-xs uppercase tracking-[0.32em] text-white/36">
-              {'\u5f53\u524d\u9636\u6bb5'}
-            </div>
+            <div className="text-xs uppercase tracking-[0.32em] text-white/36">{'\u72b6\u6001'}</div>
             <div className="rounded-full border border-alert/25 px-3 py-1 text-[11px] uppercase tracking-[0.26em] text-alert">
               {currentPhase.label}
             </div>
@@ -175,48 +173,7 @@ export default function RitualScreen({
           <div className="font-display text-[24px] tracking-[-0.04em] text-white">{currentPhase.status}</div>
           <p className="text-sm leading-6 text-white/62">{currentPhase.note}</p>
         </div>
-
-        <div className="grid grid-cols-3 gap-3 text-center">
-          <SignalCard
-            label={'\u5c01\u5370\u5f3a\u5ea6'}
-            value={`${progressPercent}%`}
-            active
-          />
-          <SignalCard
-            label={'\u5f71\u54cd\u566a\u58f0'}
-            value={ritualCompleted ? '\u5df2\u9759\u97f3' : holdProgress > 0.55 ? '\u6b63\u5728\u574d\u7f29' : '\u4ecd\u5728\u5e72\u6270'}
-            active={holdProgress > 0.2}
-          />
-          <SignalCard
-            label={'\u5224\u51b3\u72b6\u6001'}
-            value={ritualCompleted ? '\u5373\u5c06\u516c\u5e03' : '\u5f85\u843d\u69cc'}
-            active={holdProgress > 0.72 || ritualCompleted}
-          />
-        </div>
       </div>
     </ScreenShell>
-  );
-}
-
-function SignalCard({
-  label,
-  value,
-  active,
-}: {
-  label: string;
-  value: string;
-  active?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-[22px] border px-3 py-4 transition-all duration-200 ${
-        active ? 'border-alert/25 bg-alert/[0.06]' : 'border-white/10 bg-white/[0.02]'
-      }`}
-    >
-      <div className="text-[10px] uppercase tracking-[0.28em] text-white/34">{label}</div>
-      <div className={`mt-2 font-display text-sm tracking-[0.06em] ${active ? 'text-white' : 'text-white/48'}`}>
-        {value}
-      </div>
-    </div>
   );
 }

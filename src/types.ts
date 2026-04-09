@@ -2,7 +2,7 @@ export type View = 'home' | 'select' | 'ritual' | 'result' | 'report';
 
 export type BattleRecord = {
   target: string;
-  ritualName: '\u9759\u9ed8\u5c01\u5370';
-  verdict: '\u672c\u56de\u5408\u4f60\u8d62\u4e86';
+  ritualName: '\u6309\u4f4f\u5904\u7406';
+  verdict: '\u5b89\u9759\u4e86';
   timestamp: string;
 };

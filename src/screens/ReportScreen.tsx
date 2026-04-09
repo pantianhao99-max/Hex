@@ -22,11 +22,9 @@ export default function ReportScreen({ battleRecord, onBackHome }: ReportScreenP
 
   return (
     <ScreenShell
-      eyebrow={'\u5206\u4eab\u6218\u62a5'}
-      title={'\u9000\u6563\u56de\u6267'}
-      subtitle={
-        '\u505a\u6210\u4e86\u4e00\u5f20\u53ef\u622a\u56fe\u7684 H5 \u6218\u62a5\u3002\u5206\u4eab\u4e0e\u5426\u4e0d\u91cd\u8981\uff0c\u91cd\u8981\u7684\u662f\u4f60\u521a\u521a\u5df2\u7ecf\u8d62\u8fc7\u4e00\u5c40\u3002'
-      }
+      eyebrow={'\u9000\u6563 Hex'}
+      title={'\u56de\u6267'}
+      subtitle={'\u7559\u4e00\u5f20\u4e5f\u53ef\u4ee5\u3002'}
       footer={
         <div className="space-y-3">
           <button

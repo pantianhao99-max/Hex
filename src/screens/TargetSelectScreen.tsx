@@ -24,11 +24,9 @@ export default function TargetSelectScreen({
 
   return (
     <ScreenShell
-      eyebrow={'\u5bf9\u8c61\u9009\u62e9'}
-      title={'\u9009\u62e9\u672c\u6b21\u9000\u6563\u5bf9\u8c61'}
-      subtitle={
-        '\u53ef\u4ee5\u662f\u4e00\u4ef6\u4e8b\u3001\u4e00\u79cd\u72b6\u6001\uff0c\u6216\u8005\u4e00\u4e2a\u4f60\u6682\u65f6\u4e0d\u60f3\u518d\u88ab\u5b83\u5f71\u54cd\u7684\u540d\u5b57\u3002'
-      }
+      eyebrow={'\u9000\u6563 Hex'}
+      title={'\u9009\u4e00\u4e2a\u5bf9\u8c61'}
+      subtitle={'\u4e5f\u53ef\u4ee5\u81ea\u5df1\u8f93\u5165\u3002'}
       footer={
         <div className="space-y-3">
           <button
@@ -41,7 +39,7 @@ export default function TargetSelectScreen({
                 : 'cursor-not-allowed border-white/10 bg-white/[0.03] text-white/35'
             }`}
           >
-            {'\u4e0b\u4e00\u6b65\uff1a\u5f00\u59cb\u4eea\u5f0f'}
+            {'\u6309\u4f4f\u5904\u7406'}
           </button>
           <button
             type="button"
@@ -83,14 +81,12 @@ export default function TargetSelectScreen({
             id="custom-target"
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
-            placeholder={'\u8f93\u5165\u4e00\u4e2a\u60f3\u9000\u6563\u7684\u5bf9\u8c61'}
+            placeholder={'\u8f93\u5165\u4e00\u4e2a\u540d\u5b57\u6216\u4e00\u4ef6\u4e8b'}
             className="w-full border-0 bg-transparent px-0 py-3 font-display text-2xl tracking-[-0.03em] text-white outline-none placeholder:text-white/24"
             maxLength={12}
           />
           <p className="text-xs leading-5 text-white/42">
-            {
-              '\u5efa\u8bae\u8f93\u5165\u72b6\u6001\u3001\u4e8b\u4ef6\u6216\u60c5\u7eea\uff0c\u800c\u4e0d\u662f\u5177\u4f53\u8eab\u4efd\u4fe1\u606f'
-            }
+            {'\u5c3d\u91cf\u522b\u5199\u5177\u4f53\u8eab\u4efd\u4fe1\u606f'}
           </p>
         </div>
       </div>

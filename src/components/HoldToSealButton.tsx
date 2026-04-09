@@ -136,14 +136,14 @@ export default function HoldToSealButton({
       />
       <div className="relative space-y-1">
         <div className="text-[11px] uppercase tracking-[0.42em] text-white/55">
-          {isHolding ? '\u65bd\u538b\u4e2d' : '\u957f\u6309\u89e6\u53d1'}
+          {isHolding ? '\u6309\u4f4f\u4e2d' : '\u957f\u6309\u5904\u7406'}
         </div>
         <div className="font-display text-lg tracking-[0.2em] text-white">
           {disabled
-            ? '\u5224\u51b3\u751f\u6548\u4e2d'
+            ? '\u7a0d\u7b49\u4e00\u4e0b'
             : progress > 0.45
-              ? '\u7ee7\u7eed\u538b\u5236'
-              : '\u957f\u6309\u5c01\u5370'}
+              ? '\u522b\u677e\u5f00'
+              : '\u6309\u4f4f\u5904\u7406'}
         </div>
       </div>
     </button>
